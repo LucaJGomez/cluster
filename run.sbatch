@@ -1,16 +1,14 @@
-#!/usr/bin/env bash
-#SBATCH -J mc_pi
-#SBATCH -o mc_pi.out
-#SBATCH -e mc_pi.err
-#SBATCH -N 1
-#SBATCH -c 1
-#SBATCH -p serial_requeue
-#SBATCH -t 0-00:30
-#SBATCH --mem=4000
+#!/bin/bash
+#SBATCH --job-name=Train_LCDMpert_N.py
+#SBATCH --output=output.txt
+#SBATCH --error=error.txt
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=8GB
+#SBATCH --time=2:00:00
 
-# Load required modules
-source new-modules.sh
-module load python/3.6.0-fasrc01
+# Cargar el módulo necesario (si es necesario)
+# module load python/3.8
 
-# Run program
+# Ejecutar el script de Python
 python Train_LCDMpert_N.py
