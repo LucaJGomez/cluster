@@ -13,4 +13,4 @@ source new-modules.sh
 module load python/3.6.0-fasrc01
 
 # Run program
-python mc_pi.py
+python Train_LCDMpert_N.py
