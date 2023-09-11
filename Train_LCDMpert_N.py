@@ -65,11 +65,11 @@ def weighted_loss_LCDM(res, x, t):
 
 # Define the optimizer (this is commented in the solver)
 
-#nets = [FCNN(n_input_units=1,  hidden_units=(32,32,)) for _ in range(2)]
+nets = [FCNN(n_input_units=1,  hidden_units=(32,32,)) for _ in range(2)]
 
-nets = torch.load('nets_LCDM.ph',
-                  map_location=torch.device('cpu')  # Needed if trained on GPU but this sciprt is executed on CPU
-                  )
+#nets = torch.load('nets_LCDM.ph',
+#                  map_location=torch.device('cpu')  # Needed if trained on GPU but this sciprt is executed on CPU
+#                  )
 
 
 adam = torch.optim.Adam(set([p for net in nets for p in net.parameters()]),
@@ -94,7 +94,7 @@ solver = BundleSolver1D(ode_system=ODE_LCDM,
                         )
 
 # Set the amount of interations to train the solver:
-iterations = 100000
+iterations = 1000
 
 # Start training:
 solver.fit(iterations)
